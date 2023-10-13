@@ -1,0 +1,85 @@
+/*Warning errors validation page*/
+.error_field{
+	color:red;
+}
+.error_background{
+	background:pink;
+}
+table .error_background td {
+	background: pink;
+}
+table .found_error_background td {
+	background: red;
+	text-align:center;
+	font-weight:bold;
+}
+.module_error{
+	background:pink;
+}
+.module_normal{
+	
+}
+.waitingDivClass{
+	background: url('../img/../img/waiting.gif') no-repeat left;
+	z-index:100;
+	width:50px;
+	height:50px;
+	margin:0px auto;	
+}
+
+.selectedRow{
+	background:#a7c2d7;
+}
+table .selectedRow td {
+	background: #a7c2d7;
+}
+
+.heading {
+	background: lightgrey;
+	border: none;
+}
+.passedRecord{
+	background: #D6FFDA;
+}
+.coreRecordEven{
+	background: #FFCDBD;
+}
+.coreRecordOdd{
+	background: #E5B8AA;
+}
+.errorRecordEven{
+	background: #FFCC00;
+}
+.errorRecordOdd{
+	background: #FFCC66;
+}
+.duplicateRecordEven{
+	background: #DFF2FF;
+}
+.duplicateRecordOdd{
+	background: #C8D9E5;
+}
+.missingRecordEven{
+	background: #FCE4FF;
+}
+.missingRecordOdd{
+	background: #E2CDE5;
+}
+.submittedRecordEven{
+	background: #E8DED1;
+}
+.submittedRecordOdd{
+	background: #F5EADC;
+}
+.categoryRecordEven{
+	background: #C2DED1;
+}
+.categoryRecordOdd{
+	background: #CDEBDD;
+}
+.alertRecordEven{
+	background: #E0D9CE;
+}
+.alertRecordOdd{
+	background: #EDE5DA;
+}

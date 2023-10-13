@@ -1,0 +1,301 @@
+<?php
+class HeqfHelper extends AppHelper {
+
+	public $publicFields = array(
+		's1_lkp_hemis_qualifier_id', 
+		's1_lkp_hemis_qualification_type_id',
+		's1_hemis_minimum_exp_time',
+		's1_hemis_total_subsidy_units',	
+		's1_lkp_hemis_funding_level_id',
+		'hemis_lkp_cesm3_code_id', 
+		'lkp_hemis_heqf_qualification_type_id', 
+		'hemis_minimum_exp_time', 
+		'hemis_total_subsidy_units', 
+		'lkp_hemis_funding_level_id'
+	);
+	
+	public $privateFields = array(
+		's1_site_1',
+		's1_site_2',
+		's1_site_3',
+		's1_site_4',
+		's1_site_5',
+		's1_site_6',
+		's1_site_7',
+		's1_site_8',
+		's1_site_9',
+		's1_site_10',
+		's1_site_11',
+		's1_site_12',
+		's1_site_13',
+		's1_site_14',
+		's1_site_15',
+		's1_site_16',
+		's1_site_17',
+		's1_site_18',
+		's1_site_19',
+		's1_site_20',
+		's1_site_21',
+		's1_site_22',
+		's1_site_23',
+		's1_site_24',
+		's1_site_25',
+		's1_site_26',
+		's1_site_27',
+		's1_site_28',
+		's1_site_29',
+		's1_site_30',
+		'site_1',
+		'site_2',
+		'site_3',
+		'site_4',
+		'site_5',
+		'site_6',
+		'site_7',
+		'site_8',
+		'site_9',
+		'site_10',
+		'site_11',
+		'site_12',
+		'site_13',
+		'site_14',
+		'site_15',
+		'site_16',
+		'site_17',
+		'site_18',
+		'site_19',
+		'site_20',
+		'site_21',
+		'site_22',
+		'site_23',
+		'site_24',
+		'site_25',
+		'site_26',
+		'site_27',
+		'site_28',
+		'site_29',
+		'site_30'
+		
+		
+
+	);	
+	
+	public $section1Fields = array(
+		's1_institution_name' => 'Institution name',
+		's1_institution_code' => 'HEQC institution number',
+		's1_lkp_provider_type_id' => 'Provider type',
+		's1_qualification_reference_no' => 'Qualification reference number',
+		's1_heqc_reference_no' => 'HEQC reference number',
+		's1_qualification_title' => 'Qualification title',
+		's1_qualification_title_short' => 'Qualification title abbreviation',
+		//'s1_institution_qualification_title' => 'Institution qualification title',
+		's1_saqa_qualification_id' => 'SAQA qualification ID', 'type' => 'text',
+		's1_lkp_delivery_mode_id' => 'Mode of delivery',
+		's1_lkp_nqf_level_id' => 'NQF Exit Level',
+		's1_credits_total' => 'Total credits',
+		/*'s1_credits_nqf5' => 'Total credits NQF 5',
+		's1_credits_nqf6' => 'Total credits NQF 6',
+		's1_credits_nqf7' => 'Total credits NQF 7',
+		's1_credits_nqf8' => 'Total credits NQF 8',
+		's1_credits_nqf9' => 'Total credits NQF 9',
+		's1_credits_nqf10' => 'Total credits NQF 10',*/
+		's1_minimum_years_full' => 'Minimum duration full',
+		's1_minimum_years_part' => 'Minimum duration part',
+		's1_lkp_heqf_align_id' => 'Proposed HEQF Category',
+		's1_teachout_date' => 'Teach-out date',
+		's1_lkp_hemis_qualifier_id' => 'Major field of study',
+		's1_lkp_hemis_qualification_type_id' => 'HEMIS qualification type',
+		's1_hemis_minimum_exp_time' => 'HEMIS minimum experiential time',
+		's1_hemis_total_subsidy_units' => 'Total subsidy units',
+		's1_lkp_hemis_funding_level_id' => 'Funding level',
+		's1_minimum_admission_requirements' => 'Min Admission Req',
+		's1_site_1' => 'Site of delivery 1',
+		's1_site_2' => 'Site of delivery 2',
+		's1_site_3' => 'Site of delivery 3',
+		's1_site_4' => 'Site of delivery 4',
+		's1_site_5' => 'Site of delivery 5',
+		's1_site_6' => 'Site of delivery 6',
+		's1_site_7' => 'Site of delivery 7',
+		's1_site_8' => 'Site of delivery 8',
+		's1_site_9' => 'Site of delivery 9',
+		's1_site_10' => 'Site of delivery 10',
+		's1_site_11' => 'Site of delivery 11',
+		's1_site_12' => 'Site of delivery 12',
+		's1_site_13' => 'Site of delivery 13',
+		's1_site_14' => 'Site of delivery 14',
+		's1_site_15' => 'Site of delivery 15',
+		's1_site_16' => 'Site of delivery 16',
+		's1_site_17' => 'Site of delivery 17',
+		's1_site_18' => 'Site of delivery 18',
+		's1_site_19' => 'Site of delivery 19',
+		's1_site_20' => 'Site of delivery 20',
+		's1_site_21' => 'Site of delivery 21',
+		's1_site_22' => 'Site of delivery 22',
+		's1_site_23' => 'Site of delivery 23',
+		's1_site_24' => 'Site of delivery 24',
+		's1_site_25' => 'Site of delivery 25',
+		's1_site_26' => 'Site of delivery 26',
+		's1_site_27' => 'Site of delivery 27',
+		's1_site_28' => 'Site of delivery 28',
+		's1_site_29' => 'Site of delivery 29',
+		's1_site_30' => 'Site of delivery 30'
+	);
+
+	public $section2Fields = array(
+		'qualification_reference_no' => 'Qualification reference number',
+		'heqc_reference_no' => 'HEQC reference number',
+		'qualification_title' => 'Qualification title',
+		'qualification_title_short' => 'Qualification title abbr',	
+		//'institution_qualification_title' => 'Institution qualification title',
+		'lkp_qualification_type_id' => 'Qualification type',
+		'lkp_designator_id' => 'Qualification designator',
+		'other_designator' => 'Other designator',
+		'motivation_other_designator' => 'Motivation for other designator',
+		'lkp_cesm1_code_id' => 'CESM',
+		'lkp_delivery_mode_id' => 'Mode of delivery',
+		'lkp_professional_class_id' => 'Professional class',
+		'professional_body' => 'Professional body',
+		'lkp_nqf_level_id' => 'NQF Exit Level',
+		'credits_total' => 'Total credits',
+		/*'credits_nqf5' => 'Total credits NQF 5',
+		'credits_nqf6' => 'Total credits NQF 6',
+		'credits_nqf7' => 'Total credits NQF 7',
+		'credits_nqf8' => 'Total credits NQF 8',
+		'credits_nqf9' => 'Total credits NQF 9',
+		'credits_nqf10' => 'Total credits NQF 10',
+		'first_qualifier' => 'First qualifier FQ',
+		'lkp_cesm2_code_id' => 'FQ CESM',
+		'first_qualifier_credits' => 'FQ credits',
+		'first_qualifier_credits_final' => 'FQ final year credits',
+		'second_qualifier' => 'Second qualifier SQ',
+		'lkp_cesm3_code_id' => 'SQ CESM',
+		'second_qualifier_credits' => 'SQ credits',
+		'second_qualifier_credits_final' => 'SQ final year credits',*/
+		'wil_el_credits' => 'WIL EL credits',
+		'research_credits' => 'Research credits',
+		'minimum_admission_requirements' => 'Minimum admission requirements',
+		'minimum_years_full' => 'Minimum duration full',
+		'minimum_years_part' => 'Minimum duration part',
+		'qualification_purpose' => 'Qualification purpose',
+		'exit_level_outcome' => 'Grad Attributes / Exit level outcomes',
+		'articulation_progression' => 'Articulation progression',
+		'rpl' => 'RPL',
+		'international_comparability' => 'International comparability',
+		'hemis_lkp_cesm3_code_id' => 'Major field of study',
+		'lkp_hemis_heqf_qualification_type_id' => 'HEMIS amended qualification type',
+		'hemis_minimum_exp_time' => 'HEMIS minimum experiential time',
+		'hemis_total_subsidy_units' => 'Total subsidy units',
+		'lkp_hemis_funding_level_id' => 'Funding level',
+		'saqa_qualification_id' => 'SAQA qualification ID',
+		'qualification_rationale' => 'Qualification rationale',
+		'struct_elect' => 'Structured or with electives',
+		'int_assess' => 'Integrated Assessment',
+		'moderation' => 'Moderation',
+		'replace_qual' => 'Replacing which qualifications',
+		'site_1' => 'Site of delivery 1',
+		'site_2' => 'Site of delivery 2',
+		'site_3' => 'Site of delivery 3',
+		'site_4' => 'Site of delivery 4',
+		'site_5' => 'Site of delivery 5',
+		'site_6' => 'Site of delivery 6',
+		'site_7' => 'Site of delivery 7',
+		'site_8' => 'Site of delivery 8',
+		'site_9' => 'Site of delivery 9',
+		'site_10' => 'Site of delivery 10',
+		'site_11' => 'Site of delivery 11',
+		'site_12' => 'Site of delivery 12',
+		'site_13' => 'Site of delivery 13',
+		'site_14' => 'Site of delivery 14',
+		'site_15' => 'Site of delivery 15',
+		'site_16' => 'Site of delivery 16',
+		'site_17' => 'Site of delivery 17',
+		'site_18' => 'Site of delivery 18',
+		'site_19' => 'Site of delivery 19',
+		'site_20' => 'Site of delivery 20',
+		'site_21' => 'Site of delivery 21',
+		'site_22' => 'Site of delivery 22',
+		'site_23' => 'Site of delivery 23',
+		'site_24' => 'Site of delivery 24',
+		'site_25' => 'Site of delivery 25',
+		'site_26' => 'Site of delivery 26',
+		'site_27' => 'Site of delivery 27',
+		'site_28' => 'Site of delivery 28',
+		'site_29' => 'Site of delivery 29',
+		'site_30' => 'Site of delivery 30'	
+	);
+	
+	public function displayField($fieldName, $dataArray) {
+	
+		$lookups = array(
+			'lkp_qualification_type_id' => 'QualificationType',
+			'lkp_designator_id' => 'Designator',
+			'lkp_cesm1_code_id' => 'Cesm1Code',
+			'lkp_delivery_mode_id' => 'DeliveryMode',
+			'lkp_professional_class_id' => 'ProfessionalClass',
+			'lkp_nqf_level_id' => 'NqfLevel',
+			's1_lkp_delivery_mode_id' => 'DeliveryMode',
+			's1_lkp_nqf_level_id' => 'NqfLevel',
+			's1_lkp_hemis_qualifier_id' => 'HemisQualifier',
+			'hemis_lkp_cesm3_code_id' => 'HemisQualifier',
+			'lkp_hemis_heqf_qualification_type_id' => 'HemisHeqfQualificationType',
+			's1_lkp_hemis_qualification_type_id' => 'HemisQualificationType',
+			'lkp_hemis_funding_level_id' => 'HemisFundingLevel',
+			's1_lkp_hemis_funding_level_id' => 'HemisFundingLevel'
+		);
+
+	
+		if($user = Auth::get()){
+			$institutionType = $user['Institution']['priv_publ'];
+		}	
+		
+		$viewVars = ClassRegistry::getObject('View')->viewVars;
+		$fieldValue = isset($dataArray['HeqfQualification'][$fieldName]) ? $dataArray['HeqfQualification'][$fieldName] : '';
+		
+		if(strpos($fieldName, '_id')) {
+			$lookup = Inflector::pluralize(str_replace(array('_id', 'lkp_'), '', $fieldName));
+			if(isset($viewVars[$lookup][$fieldValue])) {
+				$fieldValue = $viewVars[$lookup][$fieldValue];
+			}
+		}		
+		/*
+			Remove the list of sites when a public institute
+			Otherwise, correct. Coz when private, get all the sites fields, not for a public etc.
+		*/
+		
+		if($institutionType == 1){
+			$sectionOneSiteFound = false;
+			if(strlen(strstr($fieldName,'s1_site_')) > 0){
+				$sectionOneSiteFound = true;
+				$pos = strrpos($fieldName, '_');
+				$siteNum = substr($fieldName, $pos + 1, strlen($fieldName) - 1);
+				$arrNum = $siteNum - 1;	
+				$fieldValue = isset($dataArray['HeqfQualification']['S1QualificationSite'][$arrNum]['site_name']) ? $dataArray['HeqfQualification']['S1QualificationSite'][$arrNum]['site_name'] : '';
+			}
+			elseif(strlen(strstr($fieldName,'site_')) > 0 && !$sectionOneSiteFound){
+				$pos = strrpos($fieldName, '_');
+				$siteNum = substr($fieldName, $pos + 1, strlen($fieldName) - 1);
+				$arrNum = $siteNum - 1;	
+				$fieldValue = isset($dataArray['HeqfQualification']['HeqfQualificationSite'][$arrNum]['site_name']) ? $dataArray['HeqfQualification']['HeqfQualificationSite'][$arrNum]['site_name'] : '';
+			}
+		}
+		
+		if(array_key_exists($fieldName, $lookups)){
+			$plural = Inflector::underscore(Inflector::pluralize($lookups[$fieldName]));
+			$viewVar = ClassRegistry::getObject('View')->getVar($lookups[$fieldName]);
+			
+			if(!empty($viewVar)){
+				echo isset($viewVar[$fieldValue]) ? ($viewVar[$fieldValue]) : $fieldValue;
+			}
+
+			$viewVar = ClassRegistry::getObject('View')->getVar($plural);
+			if(!empty($viewVar)){
+				echo isset($viewVar[$fieldValue]) ? ($viewVar[$fieldValue]) : $fieldValue;
+			}
+		}
+		else{
+			echo $fieldValue;
+		}
+		
+	}
+
+}

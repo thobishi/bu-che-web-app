@@ -1,0 +1,113 @@
+h1 {
+	font-size: 18pt;
+	margin-bottom: 1em;
+	text-align: left;
+	font-weight: bold;
+}
+
+h2 {
+	font-size: 16pt;
+	margin-bottom: 1em;
+	font-weight: bold;
+}
+
+h3 {
+	font-size: 12pt;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	font-weight: bold;
+}
+
+
+table {
+	width: 100%;
+	margin-bottom: 1em;
+	font-size: 9pt;
+}
+
+tr {
+	page-break-inside: avoid;
+}
+
+td {
+	border: 1px solid #000;
+	margin: 0;
+	padding: 3px;
+	page-break-inside: avoid;
+}
+
+th {
+	background-color: #e0e0e0;
+	border: 1px solid #000;
+	margin: 0;
+	padding: 5px;
+}
+
+th.white {
+	background-color: #fff;
+}
+
+th h4 {
+	font-size: 10pt;
+	text-align: left;
+	font-weight: bold;
+}
+
+th h5 {
+	font-size: 10pt;
+	font-weight: bold;
+	text-align: left;
+	font-style: italic;
+}
+
+td.no-border, th.no-border {
+	border: none;
+}
+
+td.left-border {
+	border-left: 1px solid;
+}
+
+td.bottom-border {
+	border-bottom: 1px solid;
+}
+
+table.noborders td, table.noborders th {
+	border: none;
+}
+
+div.page-break {
+	page-break-after: always;
+}
+
+.bold, strong {
+	font-weight: bold;
+}
+
+.right-text {
+	text-align: right;
+}
+
+.blue-text {
+	color: #000080;
+}
+
+.red-text {
+	color: #800000;
+}
+
+.grey-text {
+	color: #606060;
+}
+
+.total-row {
+	text-align: left;
+}
+
+p {
+	margin-top: 5px;
+}
+
+h2, h3 {
+	margin-bottom: 5px;
+}

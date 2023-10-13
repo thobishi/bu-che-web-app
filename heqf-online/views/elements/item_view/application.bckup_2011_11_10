@@ -1,0 +1,60 @@
+<?php
+	if($user = Auth::get()){
+		$institutionType = $user['Institution']['priv_publ'];
+	}
+	//lkp_qualification_type_id
+	$uniqueFields = array(
+		'hemis_lkp_cesm3_code_id' => 's1_lkp_hemis_qualifier_id',
+		'lkp_hemis_heqf_qualification_type_id' => 's1_lkp_hemis_qualification_type_id',
+	);
+	$uniqueS1Fields = array(
+		's1_teachout_date' => 'Teach-out date'
+	);
+?>
+<table>
+	<tr>
+		<th width="20%">Field</th>
+		<th width="40%">Section 1</th>
+		<th width="40%">Section 2</th>
+	</tr>
+	<tr>
+		<td><?php echo 'Proposed HEQSF Category'; ?></td>
+		<td><?php echo $this->Heqf->displayField('s1_lkp_heqf_align_id', $processData); ?></td>
+	</tr>
+	<?php
+	foreach($uniqueS1Fields as $fieldName => $fieldLabel){
+		if($institutionType == 1 && in_array($fieldName, $this->Heqf->publicFields)){
+			continue;
+		}
+		if($institutionType == 2 && in_array($fieldName, $this->Heqf->privateFields)){
+			continue;
+		}		
+	?>
+	<tr>
+		<td><?php echo $fieldLabel; ?></td>
+		<td><?php echo $this->Heqf->displayField($fieldName, $processData); ?></td>
+		<td></td>
+	</tr>
+	<?php 
+	}
+		foreach($this->Heqf->section2Fields as $fieldName => $fieldLabel) {
+		
+		if($institutionType == 1 && in_array($fieldName, $this->Heqf->publicFields)){
+			continue;
+		}
+		if($institutionType == 2 && in_array($fieldName, $this->Heqf->privateFields)){
+			continue;
+		}		
+	?>
+	<tr>
+		<td><?php echo $fieldLabel; ?></td>
+		<td><?php 
+				//echo $fieldName;
+				echo (array_key_exists($fieldName, $uniqueFields)) ? $this->Heqf->displayField($uniqueFields[$fieldName], $processData)  : '&nbsp;';
+				echo isset($processData['HeqfQualification']['s1_'.$fieldName])?$this->Heqf->displayField('s1_'.$fieldName, $processData):'&nbsp;';
+				echo (!empty($processData['HeqfQualification']['S1QualificationSite']) && (strlen(strstr($fieldName,'site_')) > 0))?$this->Heqf->displayField('s1_'.$fieldName, $processData):'&nbsp;';
+		?></td>
+		<td><?php echo $this->Heqf->displayField($fieldName, $processData); ?></td>
+	</tr>
+	<?php } ?>
+</table>

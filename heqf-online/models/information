@@ -1,0 +1,199 @@
+SECTION 1 columns:
+
+	[inst_name] => NOT IN DB		- Use institutions table
+	[heqc_inst_no] => NOT IN DB		- Use institutions table
+	[provider_type] => NOT IN DB	- Use institutions table
+	[qual_ref_no] => done
+	[heqc_ref] => done
+	[qual_title] => done
+	[qual_title_abbr] => done
+	[inst_qual_title] => done
+	[saqa_qual_id] => done
+	[mode_of_delivery] => done
+	[nqf_level] => done
+	[total_credits] => done
+	[total_credits_nqf_5] => done
+	[total_credits_nqf_6] => done
+	[total_credits_nqf_7] => done
+	[total_credits_nqf_8] => done
+	[min_admission_req] => done
+	[min_duration_full] => done
+	[min_duration_part] => done
+	[proposed_heqf_catg] => done
+	[teach_out_date] => done
+	[major_field_of_study] => done
+	[hemis_qual_type] => done
+	[hemis_min_exp_time] => done
+	[total_subsidy_units] => done
+	[funding_level] => done
+
+NOT EXIST:
+s1_heqc_application_id
+	
+SECTION 2 columns:
+
+	[qual_ref_no] => done
+	[heqc_ref] => done
+	[qual_title] => done
+	[qual_title_abbr] => done
+	[inst_qual_title] => done
+	[qual_type] => done
+	[qual_designator] => done
+	[motivation_other_designator] => done
+	[cesm] => done
+	[mode_of_delivery] => done
+	[prof_class] => done
+	[prof_body] => done
+	[nqf_level] => done
+	[total_credits] => done
+	[total_credits_nqf_5] => done
+	[total_credits_nqf_6] => done
+	[total_credits_nqf_7] => done
+	[total_credits_nqf_8] => done
+	[total_credits_nqf_9] => done
+	[total_credits_nqf_10] => done
+	[first_qualifier_fq] => done
+	[fq_cesm] => done
+	[fq_credits] => done
+	[fq_final_year_credits] => done
+	[second_qualifier_sq] => done
+	[sq_cesm] => done
+	[sq_credits] => done
+	[sq_final_year_credits] => done
+	[wil_el_credits] => done
+	[min_admission_req] => done
+	[min_duration_full] => done
+	[min_duration_part] => done
+	[qual_purpose] => done
+	[exit_level_outcomes] => done
+	[articulation_progression] => done
+	[rpl] => done
+	[international_comparability] => done
+	[major_field_of_study] => done
+	[hemis_amended_qual_type] => done
+	[hemis_min_exp_time] => done
+	[total_subsidy_units] => done
+	[funding_level] => done
+	
+NOT EXIST:
+institution_id	
+heqf_reference_no
+heqc_application_id
+saqa_qualification_id
+other_designator
+
+
+VALIDATION:
+
+SECTION 1:
+Inst Name 				-> required : done
+HEQC Inst No 			-> required, PR0nn for a private institution e.g. PR089, H0n for a public institution e.g. H08 : done, need function to test
+Provider Type			-> required, lkp_provider_types : done, lookUpValidation function, need to create the needed model
+Qual Ref No				-> required, Unique institutional reference number : done
+HEQC Ref				-> NONE HEQC-Online Reference number (if applicable) : done
+Qual Title				-> required : done
+Qual Title Abbr			-> required : done
+Inst Qual Title 		-> required : done
+SAQA Qual Id			-> NONE
+Mode of Delivery		-> required, lkp_delivery_modes : done, lookUpValidation function, need to create the needed model
+NQF Exit Level			-> required, lkp_nqf_levels, between 4-11 (5 to 10) : done, lookUpValidation function, need to create the needed model
+Total Credits			-> required, integer values only : done
+Total Credits NQF 5		-> required, integer values only : done
+Total Credits NQF 6		-> required, integer values only : done
+Total Credits NQF 7		-> required, integer values only : done
+Total Credits NQF 8		-> required, integer values only : done
+Min Admission Req		-> required, text : done
+Min Duration Full		-> required, integer values only : done
+Min Duration Part		-> required, integer values only : done
+Proposed HEQF Catg		-> required, lkp_heqf_aligns : done, lookUpValidation function, need to create the needed model
+Teach-out Date			-> required if "Proposed HEQF Catg" => Category C : done, dependantValidation function, need to test the previous value
+Major Field Of Study	-> required, valid 4 or 6 digit code, lkp_hemis_qualifiers, not applicable if private institution : done, lookUpValidationAlternate function, need to create the needed model, need to test if private or not too
+HEMIS Qual Type			-> required, lkp_hemis_qualification_types : done
+HEMIS Min Exp Time		-> required, integer : done
+Total Subsidy Units		-> required, integer : done
+Funding Level			-> required, lkp_funding_levels : done, lookUpValidation function, need to create the needed model
+
+SECTION 2:
+Qual Ref No				-> required, Unique institutional reference number, later, match the section 1 qual ref no : done -> still do the matching
+HEQC Ref				-> NONE
+Qual Title				-> required : done
+Qual Title Abbr			-> required : done
+Inst Qual Title			-> required : done
+Qual Type				-> required, lkp_qualification_types, function lookUpValidation need to create the model : done
+Qual Designator			-> required, lkp_designators need to create the model -> function designatorValidation, need field motivation_other_designator : done
+Motivation Other Designator 	-> required, function explainDesignatorValidation, if lkp_designator_id is "other" : done
+CESM					-> required, lkp_cesm1_code_id, function lookUpValidation need to create model : done
+Mode of Delivery		-> required, lkp_delivery_modes, lookUpValidation function, model created : done
+Prof Class				-> required, lkp_professional_classes, function lookUpValidation, need to create model : done
+Prof Body				-> required, function profValidation, if professional is selected in lkp_professional_class_id : done
+NQF Exit Level			-> required, function lkp_nqf_levels, model created, function lookUpValidation : done
+Total Credits			-> required, integer values only : done -> ask
+Total Credits NQF 5		-> required, integer values only : done
+Total Credits NQF 6		-> required, integer values only : done
+Total Credits NQF 7		-> required, integer values only : done
+Total Credits NQF 8		-> required, integer values only : done
+Total Credits NQF 9		-> required, integer values only : done
+Total Credits NQF 10	-> required, integer values only : done
+First Qualifier FQ		-> NONE
+FQ CESM					-> required, if first_qualifier typed in, function qualCesmLookups lkp_cesm2_codes,first_qualifier : done
+FQ Credits				-> required, if first_qualifier typed in, integer values, function qualCreditInteger : done
+FQ Final Year Credits	-> required, if first_qualifier typed in, integer values, function qualCreditInteger : done
+Second Qualifier SQ		-> NONE
+SQ CESM					-> required, if second_qualifier typed in, function qualCesmLookups lkp_cesm3_codes,second_qualifier : done
+SQ Credits				-> required, if second_qualifier typed in, integer values, function qualCreditInteger : done
+SQ Final Year Credits	-> required, if second_qualifier typed in, integer values, function qualCreditInteger : done
+WIL EL Credits			-> optional, integer values : done
+Min Admission Req		-> required : done
+Min Duration Full		-> required : done
+Min Duration Part		-> required : done
+Qual Purpose			-> required : done
+Exit Level Outcomes		-> required : done
+Articulation Progression	-> required : done
+RPL						-> required : done
+International Comparability	-> required : done
+Major Field Of Study	-> required, function lookUpValidation, hemis_lkp_cesm3_code_id : done
+HEMIS Amended Qual Type	-> required, function lookUpValidation, lkp_hemis_heqf_qualification_types : done
+HEMIS Min Exp Time		-> required, integer max 36, 4 digits : done -> ask
+Total Subsidy Units		-> required, integer 1 digit : done
+Funding Level			-> required, lkp_funding_levels, lookUpValidation function, model created : done
+
+
+
+--------------------------------
+
+
+dependant on private institution etc:
+
+Added 2 fields in rules: private, public. Depending on the current inst, will fetch only those rules that apply
+
+maybe put in to new different function to test for that. test on the global private/pub variable
+section 1
+s1_lkp_hemis_qualification_type_id		-> change rule : done
+s1_lkp_hemis_qualifier_id				-> change rule : done
+
+section 2
+hemis_lkp_cesm3_code_id					-> change rule : done
+lkp_hemis_heqf_qualification_type_id    -> change rule : done
+hemis_minimum_exp_time					-> add new rule : done
+hemis_total_subsidy_units				-> add new rule : done
+
+New Function:
+	lookUpValidationPubPriv : done
+
+----------------------------------
+
+EXTRA validation for the following fields:
+
+SECTION 2
+
+check if can add validation rules so as not to be overwritten etc
+
+lkp_nqf_level_id : 
+	Must correspond with qualification type -> lkp_qualification_type_id : nqf_exit_level : done
+credits_total : 
+	Must correspond with qualification type -> lkp_qualification_type_id : >= min_credit_range : done
+	And add the other credits to make sure they sum up to this one etc : credits_nqf5, credits_nqf6, credits_nqf7, credits_nqf8, credits_nqf9, credits_nqf10 : done
+
+minimum_years_full, minimum_years_part :
+	Must correspond with qualification type -> lkp_qualification_type_id : >= min_years_full_time, and min_years_part_time respectively
+	

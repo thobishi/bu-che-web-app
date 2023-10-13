@@ -1,0 +1,5 @@
+*.log
+workflow_log_file_copy1.sql
+heqc-docs/
+nr-online/docs-nr/
+docs-nr/

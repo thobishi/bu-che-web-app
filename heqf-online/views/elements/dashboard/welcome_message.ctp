@@ -1,0 +1,2 @@
+<h1>Welcome <?php echo Auth::get('User.first_name') . ' ' . Auth::get('User.last_name') ?></h1>
+<p>If you are having any difficulties in using HEQSF-Online, please consult the <?php echo $html->link('Help', array('controller' => 'help')) ?> page.</p>
