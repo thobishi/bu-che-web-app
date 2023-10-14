@@ -29,29 +29,29 @@
 	if (stristr($url, "http://ra") && stristr($url, "che/nr-online"))
 		define('CONFIG', 'OCTODEV');
 
-	if (stristr($url, "https://nr-online-1.che.ac.za") )
+	if (stristr($url, "https://nr-online-1.che.ac.za"))
 		define('CONFIG', 'LIVE');
-	
-		
-if (stristr($url, "https://nr-support.che.ac.za") )
-		define('CONFIG', 'LOCAL');
-		
 
+	if (stristr($url, "nr-online-1-dev"))
+		define('CONFIG', 'DEV');
+	
+	if (stristr($url, "https://nr-support.che.ac.za"))
+			define('CONFIG', 'LOCAL');
 
 	// If we do not have a config by now, we have a problem
 	if (! defined('CONFIG') ) {
-		die ('ERROR: Configs could not be initialised at this time3');
+		die ('ERROR: Configs could not be initialised at this time3 '.$url);
 	}
 
 	// SWITCH SYSTEM OFF - the use the code below
-/*
-	switch (CONFIG) {
-		case 'ADSL':
-		case 'TENET':
-			systemDown ();
-			break;
-	}
-*/
+	/*
+		switch (CONFIG) {
+			case 'ADSL':
+			case 'TENET':
+				systemDown ();
+				break;
+		}
+	*/
 	// Set group settings
 	switch (CONFIG) {
 		
@@ -73,7 +73,7 @@ if (stristr($url, "https://nr-support.che.ac.za") )
 
 			break;
 			
-			case 'LOCAL':
+		case 'LOCAL':
 			define('SYSTEM_APP', '/var/www/html/nr-support/lib');
 			define('REL_PATH', '/');
 			define('SYSTEM_ENGINE', '/var/www/html/common/workflow-2');
@@ -89,6 +89,22 @@ if (stristr($url, "https://nr-support.che.ac.za") )
 
 			break;
 
+		case 'DEV':
+			//define('SYSTEM_APP', '/var/www/html/nr-online/lib');
+			define('SYSTEM_APP', '/var/www/html/nr-online/lib');
+			define('REL_PATH', '/');
+			define('SYSTEM_ENGINE', '/var/www/html/common/workflow-2');
+
+			define('OCTODOCGEN_URL', 'https://nr-online-1-dev.che.ac.za:8080/nr-online/docgen/');
+			define('OCTODOC_DIR', '/var/www/html/docs-nr/');
+
+			define('DB_SERVER', '192.168.1.2');
+			define('DB_DATABASE', 'nr_support');
+			define('DB_USER', 'thobishi');
+			define('DB_PASSWD', 'TyRus20!!');
+			define('SEC_USER_INTERNAL_IP', '192.168.1.7');
+
+			break;
 	
 		
 		default:
@@ -103,7 +119,11 @@ if (stristr($url, "https://nr-support.che.ac.za") )
                         define ('SMTP_SERVER', '192.168.1.7');
                         error_reporting(E_ALL);
 			break;
-
+		case 'DEV':
+			define ('WRK_DEBUG_MODE', false);
+			define ('SMTP_SERVER', '192.168.1.7');
+			error_reporting(E_ALL);
+			break;
 		case 'CGDEV':
 		case 'RTNDEV':
 		case 'EBDEV':
@@ -112,13 +132,11 @@ if (stristr($url, "https://nr-support.che.ac.za") )
 		case 'DDRDEV':
 		case "WLDEV":
 		case "SUPPORT":
-			
-			
-			case "LOCAL":
+		case "LOCAL":
 			define('WRK_DEBUG_MODE', true);
 			define('SMTP_SERVER', '192.168.1.7');
 			error_reporting(E_ALL);
-                       define ('WRK_ALT_EMAIL', "phokontsi.m@che.ac.za");
+			define ('WRK_ALT_EMAIL', "phokontsi.m@che.ac.za");
 			break;
 		default:
 			die ('ERROR: Config could not be initialised at this time2');
@@ -181,11 +199,11 @@ if (stristr($url, "https://nr-support.che.ac.za") )
 
 	$heqcEncrypt = new octoEncrypt('56nr147');
 
-//	PHP 5 function
+	//	PHP 5 function
 
-//	function __autoload($class_name) {
-//		require_once (SYSTEM_ENGINE.'/class.'.$class_name.'.php');
-//	}
+	//	function __autoload($class_name) {
+	//		require_once (SYSTEM_ENGINE.'/class.'.$class_name.'.php');
+	//	}
 
 	function __autoload($class_name) {
 		$path = explode(':', ini_get("include_path"));
@@ -206,14 +224,16 @@ if (stristr($url, "https://nr-support.che.ac.za") )
 		header("HTTP/1.0 404 Not Found");
 		header("Status: 404 Not Found");
 	?>
-<center><big>
-<br><br>
-System is down for maintenance.
-<br><br>
-Please read the notes at:<br>
-<a href="http://nr-online-1.che.ac.za/">http://nr-online-1.che.ac.za/</a>
-</big></center>
-	<?php
+		<center><big>
+		<br>
+		<br>
+		System is down for maintenance.
+		<br>
+		<br>
+		Please read the notes at:<br>
+		<a href="http://nr-online-1.che.ac.za/">http://nr-online-1.che.ac.za/</a>
+		</big></center>
+			<?php
 		die ();
 	}
 

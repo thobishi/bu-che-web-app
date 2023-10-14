@@ -318,7 +318,7 @@ class PDF extends FPDF {
 		while($i<$nb) {
 			$wp_flag=false;
 			//Get next character
-			$c=$s{$i};
+			$c=$s[$i];
 			if($c==' ') {$sep=$i;$sep_l=$l;}
 			if (sizeof($c_line_wp)>0) { // -- image wrap
 				//$l+=$cw[$c];
